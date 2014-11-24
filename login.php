@@ -10,13 +10,13 @@
         <title>Trivial Cetys</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         
     </head>
     
-    <body style="background-color: #6666ff">
+    <body>
         
         
          <?php
@@ -32,6 +32,11 @@ if( (isset($_POST['usuario'])) && ($_POST['usuario'] !== '') ){
         $consultar = $cliente ->login($usuario, $pass);
  // El contenido de esta variable lo subdividimos y metemos en la siguiente variable.       
         $contrasena = explode("!!!", $consultar);
+        
+        
+        // Login Prueba: JOS.FERNPA@yahoo.com
+        // Pass Prueba: 1234
+        
         
 // Código debug no tocarrr
 //        echo $pass;
@@ -68,7 +73,7 @@ echo '</script>';
         ?>
     
         
-     <div class="container-fluid" style="margin-left: 30%;margin-right: 20%; margin-top: 5%">
+<!--     <div class="container-fluid" style="margin-left: 30%;margin-right: 20%; margin-top: 5%">
     <div class="row-fluid" style="margin-top: 5%; margin-bottom: 5%">
            
         <div id="login_usuario"class="span3">
@@ -99,12 +104,51 @@ echo '</script>';
                             </div>
                         </fieldset>
                         </form>
+            
+            
+            
         </div>
         
        </div> 
         
-       </div> 
+       </div> -->
         
-       
+
+            <div class="row">
+                <div class="col-lg-12 text-center">
+<!--                    <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
+                    <p class="lead">This theme features some wonderful photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>-->
+
+<fieldset>
+ <div id="login_usuario">
+                            <legend>Bienvenido a LoQueTeSalga</legend>
+<form class="form-inline" role="form" action="login.php" method="post">
+  <div class="form-group">
+    <div class="input-group">
+      <label class="sr-only" for="exampleInputEmail2">Email</label>
+      <div class="input-group-addon">@</div>
+      <input type="email" class="form-control" id="exampleInputEmail2" name="usuario" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+      <div class="input-group">
+    <label class="sr-only" for="exampleInputPassword2">Contraseña</label>
+    <div class="input-group-addon">*</div>
+    <input type="password" class="form-control" id="exampleInputPassword2" name="pass"  placeholder="Contraseña">
+  </div>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-dark">Entrar</button>
+</form>
+ </div>
+</fieldset>
+                </div>
+            </div>
+            <!-- /.row -->
+   
     </body>
 </html>
