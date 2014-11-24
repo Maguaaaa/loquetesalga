@@ -65,21 +65,27 @@ if( (isset($_POST['usuario'])) && ($_POST['usuario'] !== '') ){
         // Ya que estamos, saludamos al usuario
      //   echo '<h2>Hola '.$contrasena[0].'</h2>';
 //        
- echo "<script language='javascript' type='text/javascript'>";
-echo "$(document).ready(function(){";
-echo "$('#login_usuario').remove();";
+            ?>
+ <script>
+$(document).ready(function(){;
+$('#login_usuario').remove();
+$('#fotos').removeClass('hidden');
+$('#top').remove();
 
-echo "$('#top').remove();";
-
-echo "});";
+});
 
   
 
- echo "</script>";
-echo '<div style="width:40%; margin-left:30%; margin-right:30%">';
-echo '<h1>Hola '.$contrasena[0].'</h1>';
-echo '</div>';
-        
+ </script>";
+ 
+ <?php
+ 
+ 
+ 
+//echo '<div style="width:40%; margin-left:30%; margin-right:30%">';
+//echo '<h1>Hola '.$contrasena[0].'</h1>';
+//echo '</div>';
+//        
 //echo 'Esto confirma el correcto funcionamiento';
 //echo '<p></p>';
 
@@ -102,7 +108,10 @@ echo '</script>';
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top">Start Bootstrap</a><!--Nombre usuario-->
+                <a href="#top"><?php if(isset($contrasena[1])){
+                    echo $contrasena[0];
+                    
+                }else{echo 'Introduce tus datos';}?></a><!--Nombre usuario-->
                 
             </li>
 <!--            <li>
@@ -260,7 +269,7 @@ echo '</script>';
     <!-- Portfolio   Aqui van a aparecer las iamgenes que van a ir saliendo -->
     <section id="portfolio" class="portfolio">
         <div  class="container"> <!-- AQUI SE ENSEÑAN LAS FOTOS-->
-            <div id="fotos" class="row ">
+            <div id="fotos" class="row hidden ">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <h2>Imagenes Compartidas</h2>
                     <hr class="small">
