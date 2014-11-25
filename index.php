@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Stylish Portfolio - Start Bootstrap Theme</title>
+    <title>Lo Que Te Salga</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -67,7 +67,7 @@ if( (isset($_POST['usuario'])) && ($_POST['usuario'] !== '') ){
 //        
             ?>
  <script>
-$(document).ready(function(){;
+$(document).ready(function(){
 $('#login_usuario').remove();
 $('#fotos').removeClass('hidden');
 $('#top').remove();
@@ -76,7 +76,7 @@ $('#top').remove();
 
   
 
- </script>";
+ </script>
  
  <?php
  
@@ -102,6 +102,7 @@ echo '</script>';
      }
      
         ?>
+
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
     <nav id="sidebar-wrapper">
@@ -133,7 +134,7 @@ echo '</script>';
         </ul>
     </nav>
     
-
+ 
     <!-- Header -->
     <header id="top" class="header">
         <div id="cosa"class="text-vertical-center">
@@ -177,9 +178,11 @@ echo '</script>';
     </label>
   </div>
   <button type="submit" class="btn btn-dark">Entrar</button>
+  <h5>¿Aún sin cuenta?</h5><a href="#about"><h5 class="btn btn-link" onclick="registro()">Registrate</h5></a>
 </form>
 </div>
 </fieldset>
+
                 </div>
             </div>
             <!-- /.row -->
@@ -348,6 +351,7 @@ echo '</script>';
             <div id="detalle" class="row hidden">
                 
             </div>
+            
         </div>
     </aside>
     <hr>
@@ -429,6 +433,36 @@ echo '</script>';
             }
         });
     });
+    
+    function registro(){
+        $("#img").removeClass("hidden");
+        $("#detalle").removeClass("hidden");
+      $("#detalle").html('<legend>Registrate</legend><form class="registerForm">\n\
+<div class="form-group"><label>Nombre</label><div class="input-prepend"><span class="add-on">\n\
+</span><input id="nombre" placeholder="Nombre" type="text" class="form-control input-xlarge" name="nombre" />\n\
+</div></div><div class="form-group"><label>Apellido</label><div class="input-prepend">\n\
+<span class="add-on"></span><input id="apellido" placeholder="Apellido" type="text" class="form-control input-xlarge" name="apellido" />\n\
+</div></div><div class="form-group"><label>Email</label><div class="input-prepend"><span class="add-on"></span>\n\
+<input id="email" placeholder="Email" type="text" class="form-control input-xlarge" name="email" /></div></div><div class="form-group"><label>Contraseña</label>\n\
+<div class="input-prepend"><span class="add-on"></span><input id="contrasena" placeholder="Contraseña" type="text" class="form-control input-xlarge" name="contrasena" />\n\
+</div></div></form><h2 id="enviaDatos" class="btn btn-dark">Enviar</i></h2><hr><br>');
+        
+    }
+    
+     $("#enviaDatos").click(function () {
+         //Aqui va la funcion para que el boton de registro lleve al registro
+//                var _id = $('#id').val();
+//                var _nombre = $('#nombre').val();
+//                var _numeroserie= $('#numeroserie').val();
+//                var _cantidad = $('#cantidad').val();
+//                $('#contenedor').load("articuloAnadidoMiguel.php", {
+//                    id: _id,
+//                    nombre: _nombre,
+//                    numeroserie: _numeroserie,
+//                    cantidad: _cantidad
+//                    
+//                });
+            });
     </script>
 
 </body>
