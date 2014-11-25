@@ -71,13 +71,14 @@ $(document).ready(function(){
 $('#login_usuario').remove();
 $('#fotos').removeClass('hidden');
 $('#top').remove();
-
+$('#about').remove();//eliminamos la seccion del principio
+$('#barra').removeClass('hidden');
 });
 
   
 
  </script>
- 
+
  <?php
  
  
@@ -111,7 +112,10 @@ echo '</script>';
             <li class="sidebar-brand">
                 <a href="#top"><?php if(isset($contrasena[1])){
                     echo $contrasena[0];
-                    
+                    echo '<li>
+                <a href="#portfolio">Log Out</a><!--Log Out-->
+                
+            </li>';
                 }else{echo 'Introduce tus datos';}?></a><!--Nombre usuario-->
                 
             </li>
@@ -125,7 +129,7 @@ echo '</script>';
                 <a href="#services">Services</a>
             </li>-->
             <li>
-                <a href="#portfolio">Log Out</a><!--Log Out-->
+               <!-- <a href="#portfolio">Log Out</a><!--Log Out-->
                 
             </li>
 <!--            <li>
@@ -178,7 +182,7 @@ echo '</script>';
     </label>
   </div>
   <button type="submit" class="btn btn-dark">Entrar</button>
-  <h5>¿Aún sin cuenta?</h5><a href="#about"><h5 class="btn btn-link" onclick="registro()">Registrate</h5></a>
+  <h5>¿Aún sin cuenta?</h5><a href="#img"><h5 class="btn btn-link" onclick="registro()">Registrate</h5></a>
 </form>
 </div>
 </fieldset>
@@ -190,6 +194,41 @@ echo '</script>';
         </div>
         <!-- /.container -->
     </section>
+    <div id="barra" class="hidden">
+        <nav class="navbar  navbar-inverse navbar-custom  top-nav-collapse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-photo"></i>  <span class="light">Lo Que</span> Te Salga
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden active">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">Download</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    </div>
 
 <!--     Services 
      The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ 
@@ -275,7 +314,8 @@ echo '</script>';
             <div id="fotos" class="row hidden ">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <h2>Imagenes Compartidas</h2>
-                    <hr class="small">
+                    
+                    <hr>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="portfolio-item">
@@ -334,6 +374,7 @@ echo '</script>';
                             </div>
                         </div>
                     </div>
+                    <hr>
                     <!-- /.row (nested) -->
                     <a href="#" class="btn btn-dark">View More Items</a>
                 </div>
@@ -414,7 +455,8 @@ echo '</script>';
         function cargafoto(){
             $("#img").removeClass("hidden");
             $("#detalle").removeClass("hidden");
-            $("#detalle").html('<img class="img-portfolio img-responsive"  src="img/portfolio-1.jpg">');
+            $("#detalle").html('<div class="col-lg-6"><img class="img-portfolio img-thumbnail img-responsive"  src="img/portfolio-1.jpg"></div>\n\
+        <div class="col-lg-6"><h2>Titulo</h2><h3>Usuario</h3><h3>Usuario</h3></div>');
         }
 
     // Scrolls to the selected menu item on the page
@@ -437,15 +479,15 @@ echo '</script>';
     function registro(){
         $("#img").removeClass("hidden");
         $("#detalle").removeClass("hidden");
-      $("#detalle").html('<legend>Registrate</legend><form class="registerForm">\n\
-<div class="form-group"><label>Nombre</label><div class="input-prepend"><span class="add-on">\n\
-</span><input id="nombre" placeholder="Nombre" type="text" class="form-control input-xlarge" name="nombre" />\n\
-</div></div><div class="form-group"><label>Apellido</label><div class="input-prepend">\n\
-<span class="add-on"></span><input id="apellido" placeholder="Apellido" type="text" class="form-control input-xlarge" name="apellido" />\n\
-</div></div><div class="form-group"><label>Email</label><div class="input-prepend"><span class="add-on"></span>\n\
-<input id="email" placeholder="Email" type="text" class="form-control input-xlarge" name="email" /></div></div><div class="form-group"><label>Contraseña</label>\n\
-<div class="input-prepend"><span class="add-on"></span><input id="contrasena" placeholder="Contraseña" type="text" class="form-control input-xlarge" name="contrasena" />\n\
-</div></div></form><h2 id="enviaDatos" class="btn btn-dark">Enviar</i></h2><hr><br>');
+      $("#detalle").html('<div class="col-lg-2"></div><div class="col-lg-8"><legend>Registrate</legend><form class="registerForm">\n\
+       <div class="form-group"><label>Nombre</label><div class="input-prepend"><span class="add-on">\n\
+       </span><input id="nombre" placeholder="Nombre" type="text" class="form-control input-xlarge" name="nombre" />\n\
+      </div></div><div class="form-group"><label>Apellido</label><div class="input-prepend">\n\
+      <span class="add-on"></span><input id="apellido" placeholder="Apellido" type="text" class="form-control input-xlarge" name="apellido" />\n\
+      </div></div><div class="form-group"><label>Email</label><div class="input-prepend"><span class="add-on"></span>\n\
+      <input id="email" placeholder="Email" type="email" class="form-control input-xlarge" name="email" /></div></div><div class="form-group"><label>Contraseña</label>\n\
+      <div class="input-prepend"><span class="add-on"></span><input type="password" id="contrasena" placeholder="Contraseña" type="text" class="form-control input-xlarge" name="contrasena" />\n\
+      </div></div></form><h2 id="enviaDatos" class="btn btn-dark">Enviar</i></h2><hr><br></div>');
         
     }
     
