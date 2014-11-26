@@ -18,21 +18,24 @@ $contrasena = $_POST['contrasena'];
 
     
 //Conectamos al servidor.
-       $cliente = new SoapClient(null, array('location' => 'http://www.pruebasoap.esy.es/Server.php','uri' => 'urn:webservices', "trace" => 1));
+       $cliente = new SoapClient(null, array('location' => 'http://www.pruebasoap.esy.es/ServerCreate.php','uri' => 'urn:webservices', "trace" => 1));
  // llamamos al procedimiento remoto que se nos ha comunicado y le pasamos las variables que queremos y lo metemos en la variable.
-        $consultar = $cliente ->login($nombre, $contrasena);
+        $consultar = $cliente ->login($nombre, $apellido, $email, $contrasena);
  // El contenido de esta variable lo subdividimos y metemos en la siguiente variable.       
-     //   $contrasena = explode("!!!", $consultar);
+     //   
         
      echo $consultar;      
         // Login Prueba: JOS.FERNPA@yahoo.com
         // Pass Prueba: 1234
         
-        
+   //   $contrasena = explode("!!!", $consultar);
 // Código debug no tocarrr
  //       echo $pass;
 //        echo '<br>';
-//        echo $contrasena[1];
+//      echo $contrasena[0];
+//       echo $contrasena[1];
+//       echo $contrasena[2];
+//       echo $contrasena[3];
         
         // si la palabra clave suministrada coincide con la que acabamos de recibir de vuelta para comprobar.
         

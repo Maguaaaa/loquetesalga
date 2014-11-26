@@ -18,34 +18,42 @@ function conectaBBDD(){
 
 class ServicioDeUsuarios
 {
-    private $_DNI;
-    private $_PASS;
+    private $_NOMBRE;
+    private $_APELLIDO;
+    private $_EMAIL;
+    private $_CONTRASENA;
+    
 
-    public function login($dni, $pass)
+    public function login($nombre, $apellido, $email, $contrasena)
     {
         $conexion = conectaBBDD();
-        $this->_DNI = $dni; 
-        $this->_PASS = $pass; 
+        $this->_NOMBRE = $nombre; 
+        $this->_APELLIDO = $apellido;
+        $this->_EMAIL = $email;
+        $this->_CONTRASENA = $contrasena; 
+        
+        
         //consultamos el DNI que pedimos 
-        $consulta_usuario= $conexion->query("SELECT * FROM usuariosAlmacen WHERE email = '$dni'"); 
+//        $consulta_usuario= $conexion->query("INSERT INTO `usuarios`(`nombre`, `apellido`, `email`, `clave`) VALUES ('test1','test2','test3','test4')");
+        $consulta_usuario= $conexion->query("INSERT INTO `usuarios`(`nombre`, `apellido`, `email`, `clave`) VALUES ('$nombre','$apellido','$email','$contrasena')");
         $num_filas = mysqli_num_rows ( $consulta_usuario);
-        if($dni != "" && $dni != NULL){
-            if($pass != "" && $pass != NULL){
-              //mandamos de vuelta el nombre y password para que podamos trabajar con ello  
-            $fila = $consulta_usuario->fetch_assoc();
-            $usuario = $fila['nombre'].'!!!'.$fila['clave'];
-            }
+//        if($nombre != "" && $nombre != NULL){
+//            if($contrasena != "" && $contrasena != NULL){
+//              //mandamos de vuelta el nombre y password para que podamos trabajar con ello  
+//            $fila = $consulta_usuario->fetch_assoc();
+//            $usuario = $fila['nombre'].'!!!'.$fila['clave'].'!!!'.$fila['email'].'!!!'.$fila['apellidos'];
+//            }
             
            
-            return $usuario;
+     //       return $usuario;
          
         }
-        return $num_filas;
+    //    return $num_filas;
     }
     
     
     
-}
+//}
 
 
 
