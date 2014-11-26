@@ -6,18 +6,25 @@
      //      $usuario = $_POST['nombre'];
      //      $pass = $_POST['contrasena'];
 
+$nombre = $_POST['nombre'];
+//echo $nombre;
+$apellido = $_POST['apellido'];
+//echo $apellido;
+$email = $_POST['email'];
+//echo $email;
+$contrasena = $_POST['contrasena'];
+//echo $contrasena;
 
-         
-    echo $nombre;
-    echo contrasena;
+
+    
 //Conectamos al servidor.
        $cliente = new SoapClient(null, array('location' => 'http://www.pruebasoap.esy.es/Server.php','uri' => 'urn:webservices', "trace" => 1));
  // llamamos al procedimiento remoto que se nos ha comunicado y le pasamos las variables que queremos y lo metemos en la variable.
-   //     $consultar = $cliente ->login($usuario, $pass);
+        $consultar = $cliente ->login($nombre, $contrasena);
  // El contenido de esta variable lo subdividimos y metemos en la siguiente variable.       
      //   $contrasena = explode("!!!", $consultar);
         
-        
+     echo $consultar;      
         // Login Prueba: JOS.FERNPA@yahoo.com
         // Pass Prueba: 1234
         

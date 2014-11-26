@@ -484,7 +484,7 @@ echo '</script>';
     function registro(){
         $("#img").removeClass("hidden");
         $("#detalle").removeClass("hidden");
-      $("#detalle").html('<div class="col-lg-2"></div><div class="col-lg-8"><legend>Registrate</legend><form class="registerForm">\n\
+      $("#detalle").html('<div class="col-lg-2"></div><div class="col-lg-8"><legend>Registrate</legend><form class="registerForm" method="post">\n\
        <div class="form-group"><label>Nombre</label><div class="input-prepend"><span class="add-on">\n\
        </span><input id="nombre" placeholder="Nombre" type="text" class="form-control input-xlarge" name="nombre" />\n\
       </div></div><div class="form-group"><label>Apellido</label><div class="input-prepend">\n\
@@ -497,23 +497,32 @@ echo '</script>';
     }
  
  function enviaDatos(){
-     $('body').load("registroNuevoUsuario.php");
+                var _nombre = $('#nombre').val();
+                var _apellido = $('#apellido').val();
+                var _email= $('#email').val();
+                var _contrasena = $('#contrasena').val();
+     $('body').load("registroNuevoUsuario.php",{
+                    nombre: _nombre,
+                    apellido: _apellido,
+                    email: _email,
+                    contrasena: _contrasena
+        }); 
  }
  
-     $("#enviaDatos").click(function () {
-        // Aqui va la funcion para que el boton de registro lleve al registro
-                var _id = $('#id').val();
-                var _nombre = $('#nombre').val();
-                var _numeroserie= $('#numeroserie').val();
-                var _cantidad = $('#cantidad').val();
-                $('#contenedor').load("registroNuevoUsuario", {
-                    id: _id,
-                    nombre: _nombre,
-                    numeroserie: _numeroserie,
-                    cantidad: _cantidad
-                    
-                });
-            });    
+//     $("#enviaDatos").click(function () {
+//        // Aqui va la funcion para que el boton de registro lleve al registro
+//                var _id = $('#id').val();
+//                var _nombre = $('#nombre').val();
+//                var _numeroserie= $('#numeroserie').val();
+//                var _cantidad = $('#cantidad').val();
+//                $('#contenedor').load("registroNuevoUsuario", {
+//                    nombre: _id,
+//                    nombre: _nombre,
+//                    numeroserie: _numeroserie,
+//                    cantidad: _cantidad
+//                    
+//                });
+//            });    
             
     </script>
 
