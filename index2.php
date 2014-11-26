@@ -1,3 +1,4 @@
+<?php include funciones.php; ?>
 <!--
 
 <!DOCTYPE html>
@@ -313,10 +314,10 @@ echo '</script>';
     <!-- Portfolio   Aqui van a aparecer las iamgenes que van a ir saliendo -->
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <div class="row">
+            <div id="fotos" class="row hidden ">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <h2>Imagenes Compartidas</h2>
-                    <hr class="small">
+                    <hr>
                     <div class="row">
                         
                         <?php
@@ -332,7 +333,7 @@ echo '</script>';
                   echo '<div class="col-md-6">';
                           echo  '<div class="portfolio-item">';
                             echo  '<a href="#">';
-                                  echo '<img class="img-portfolio img-responsive" src="img/portfolio-' . $fila['id'] . '.jpg" width="420" height="320">';
+                                  echo '<img class="img-portfolio img-responsive" onclick="cargafoto(1) src="img/portfolio-' . $fila['id'] . '.jpg" width="420" height="320">';
                               echo  '</a>';
                            echo '</div>';
                        echo '</div>'; 
