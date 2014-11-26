@@ -426,9 +426,14 @@ echo '</script>';
                     </ul>
                     <hr class="small">
                     <p class="text-muted">Copyright &copy; Lo Que Te Salga 2014</p>
+                      <div id="contenedor">
+            
+        </div>
                 </div>
             </div>
         </div>
+        
+      
     </footer>
 
     <!-- jQuery -->
@@ -487,24 +492,29 @@ echo '</script>';
       </div></div><div class="form-group"><label>Email</label><div class="input-prepend"><span class="add-on"></span>\n\
       <input id="email" placeholder="Email" type="email" class="form-control input-xlarge" name="email" /></div></div><div class="form-group"><label>Contraseña</label>\n\
       <div class="input-prepend"><span class="add-on"></span><input type="password" id="contrasena" placeholder="Contraseña" type="text" class="form-control input-xlarge" name="contrasena" />\n\
-      </div></div></form><h2 id="enviaDatos" class="btn btn-dark">Enviar</i></h2><hr><br></div>');
+      </div></div></form><h2 id="enviaDatos" onclick="enviaDatos()" class="btn btn-dark">Enviar</i></h2><hr><br></div>');
         
     }
-    
+ 
+ function enviaDatos(){
+     $('body').load("registroNuevoUsuario.php");
+ }
+ 
      $("#enviaDatos").click(function () {
-         //Aqui va la funcion para que el boton de registro lleve al registro
-//                var _id = $('#id').val();
-//                var _nombre = $('#nombre').val();
-//                var _numeroserie= $('#numeroserie').val();
-//                var _cantidad = $('#cantidad').val();
-//                $('#contenedor').load("articuloAnadidoMiguel.php", {
-//                    id: _id,
-//                    nombre: _nombre,
-//                    numeroserie: _numeroserie,
-//                    cantidad: _cantidad
-//                    
-//                });
-            });
+        // Aqui va la funcion para que el boton de registro lleve al registro
+                var _id = $('#id').val();
+                var _nombre = $('#nombre').val();
+                var _numeroserie= $('#numeroserie').val();
+                var _cantidad = $('#cantidad').val();
+                $('#contenedor').load("registroNuevoUsuario", {
+                    id: _id,
+                    nombre: _nombre,
+                    numeroserie: _numeroserie,
+                    cantidad: _cantidad
+                    
+                });
+            });    
+            
     </script>
 
 </body>
