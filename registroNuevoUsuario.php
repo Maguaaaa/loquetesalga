@@ -44,5 +44,5 @@ $contrasena = $_POST['contrasena'];
      //   echo '<h2>Hola '.$contrasena[0].'</h2>';
 //        
 //}
-
+echo '<h2>Usuario nuevo creado.</h2> <br><br><a href="index.php">Vuelve a la pagina inicio</a>';
 ?>
