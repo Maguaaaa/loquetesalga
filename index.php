@@ -113,7 +113,7 @@ echo '</script>';
                 <a href="#top"><?php if(isset($contrasena[1])){
                     echo $contrasena[0];
                     echo '<li>
-                <a href="#portfolio">Log Out</a><!--Log Out-->
+                <a onclick="cierra()" href="index.php">Log Out</a><!--Log Out-->
                 
             </li>';
                 }else{echo 'Introduce tus datos';}?></a><!--Nombre usuario-->
@@ -461,7 +461,7 @@ echo '</script>';
             $("#img").removeClass("hidden");
             $("#detalle").removeClass("hidden");
             $("#detalle").html('<div class="col-lg-6"><img class="img-portfolio img-thumbnail img-responsive"  src="img/portfolio-1.jpg"></div>\n\
-        <div class="col-lg-6"><h2>Titulo</h2><h3>Usuario</h3><h3>Usuario</h3></div>');
+        <div class="col-lg-4"><h2>Titulo</h2><h3>Usuario</h3><h3>Usuario</h3></div><div class="col-lg-2"><h2 class="btn btn-dark" onclick="comentar()">Comentar</h2></div>');
         }
 
     // Scrolls to the selected menu item on the page
@@ -509,20 +509,23 @@ echo '</script>';
         }); 
  }
  
-//     $("#enviaDatos").click(function () {
-//        // Aqui va la funcion para que el boton de registro lleve al registro
-//                var _id = $('#id').val();
-//                var _nombre = $('#nombre').val();
-//                var _numeroserie= $('#numeroserie').val();
-//                var _cantidad = $('#cantidad').val();
-//                $('#contenedor').load("registroNuevoUsuario", {
-//                    nombre: _id,
-//                    nombre: _nombre,
-//                    numeroserie: _numeroserie,
-//                    cantidad: _cantidad
-//                    
-//                });
-//            });    
+function comentar(){
+        $("#detalle").html('<div class="col-lg-4"></div><div class="col-lg-4"> <legend>Usuario</legend> <input id = "usuario" type="text" class="form-control " disabled name="usuario" placeholder="<?php if(isset($contrasena[1])){echo $contrasena[0];} ?>" /><br><legend>Comentario</legend><textarea class="form-control" rows="3"></textarea><h2 class="btn btn-dark" onclick="enviaComent()">Enviar</h2></div><div class="col-lg-1"><a href="#portfolio"><h2 class="btn btn-xs btn-danger " onclick="cierraComent()">Cerrar</h2></a>');
+    }
+    
+    function enviaComent(){
+        //FUNCION PARA QUE SE ENVIE EL COMENTARIO A LA BASE DE DATOS
+    }
+    
+            
+            function cierra(){//El log Out
+                session_destroy();
+            } 
+            
+            function  cierraComent(){
+                $('#detalle').addClass('hidden');
+                $('#img').addClass('hidden');
+            }
             
     </script>
 
