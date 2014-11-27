@@ -309,6 +309,7 @@ echo '</script>';
     </aside>-->
 
     <!-- Portfolio   Aqui van a aparecer las iamgenes que van a ir saliendo -->
+   
     <section id="portfolio" class="portfolio">
         <div  class="container"> <!-- AQUI SE ENSEÑAN LAS FOTOS-->
             <div id="fotos" class="row hidden ">
@@ -316,67 +317,29 @@ echo '</script>';
                     <h2>Imagenes Compartidas</h2>
                     
                     <hr>
+                     <?php 
+                     include 'funciones.php';
+                        $conexion = conectaBBDD();
+                        $consulta = $conexion->query("select * from fotos");
+                        ?>
+                        
+                
                     <div class="row">
+                        <?php
+                        while ($fila = $consulta->fetch_assoc()) {
+                        ?>
                         <div class="col-md-6">
+                            <legend><?php echo $fila['nombre'] ?></legend>
                             <div class="portfolio-item">
+                                
                                 <a href="#img">
-                                    <img class="img-portfolio img-responsive btn" onclick="cargafoto(1)" src="img/portfolio-1.jpg">
+                                    <img class="img-portfolio img-responsive " onclick="cargafoto('<?php echo $fila['id']?>','<?php echo $fila['nombre']; ?>')" src="img/portfolio-<?php echo $fila['id']?>.jpg">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
-                                </a>
-                            </div>
-                        </div>
-                         <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
+                        <?php }?>
                     <!-- /.row (nested) -->
-                    <a href="#" class="btn btn-dark">View More Items</a>
+                    <a href="#" class="btn btn-dark">Mas Fotos</a>
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
@@ -457,11 +420,11 @@ echo '</script>';
         $("#sidebar-wrapper").toggleClass("active");
     });
 
-        function cargafoto(){
+        function cargafoto(a,e){
             $("#img").removeClass("hidden");
             $("#detalle").removeClass("hidden");
-            $("#detalle").html('<div class="col-lg-6"><img class="img-portfolio img-thumbnail img-responsive"  src="img/portfolio-1.jpg"></div>\n\
-        <div class="col-lg-4"><h2>Titulo</h2><h3>Usuario</h3><h3>Usuario</h3></div><div class="col-lg-2"><h2 class="btn btn-dark" onclick="comentar()">Comentar</h2></div>');
+            $("#detalle").html('<div class="col-lg-6"><img class="img-portfolio img-thumbnail img-responsive"  src="img/portfolio-'+ a +'.jpg"></div>\n\
+        <div class="col-lg-4"><h2>'+ e +'</h2><h3>Usuario</h3></div><div class="col-lg-2"><h2 class="btn btn-dark" onclick="comentar()">Comentar</h2></div>');
         }
 
     // Scrolls to the selected menu item on the page
