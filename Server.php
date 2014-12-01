@@ -27,13 +27,14 @@ class ServicioDeUsuarios
         $this->_DNI = $dni; 
         $this->_PASS = $pass; 
         //consultamos el DNI que pedimos 
-        $consulta_usuario= $conexion->query("SELECT * FROM usuariosAlmacen WHERE email = '$dni'"); 
+        $consulta_usuario= $conexion->query("SELECT * FROM usuarios WHERE email = '$dni'"); 
         $num_filas = mysqli_num_rows ( $consulta_usuario);
         if($dni != "" && $dni != NULL){
             if($pass != "" && $pass != NULL){
               //mandamos de vuelta el nombre y password para que podamos trabajar con ello  
             $fila = $consulta_usuario->fetch_assoc();
             $usuario = $fila['nombre'].'!!!'.$fila['clave'];
+            $usuario = strtoupper($usuario);
             }
             
            
