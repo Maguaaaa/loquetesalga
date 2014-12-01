@@ -31,6 +31,20 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <!--    ///////////SCRIPST DEL UPLOADER//////////////-->
+
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css"
+        id="theme">
+    <link rel="stylesheet" href="js/jquery.fileupload-ui.css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="js/jquery.fileupload.js"></script>
+    <script src="js/jquery.fileupload-ui.js"></script>
+
+
+
+<!--///////////////////////////////////////////////////////-->
 
 </head>
 
@@ -340,6 +354,14 @@ echo '</script>';
                         <?php }?>
                     <!-- /.row (nested) -->
                     <a href="#" class="btn btn-dark">Mas Fotos</a>
+                    <form id="file_upload" action="upload.php" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" multiple>
+                <button class="btn btn-dark">
+                    Upload</button>
+                    <div>
+                    
+                        Subir imagen</div>
+                                </form>
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
@@ -491,7 +513,28 @@ function comentar(){
             }
             
     </script>
+<script>
 
+ $(function () {
+ $('#file_upload').fileUploadUI({
+ uploadTable: $('#files'),
+ downloadTable: $('#files'),
+ buildUploadRow: function (files, index) {
+ return $('<tr><td>' + files[index].name + '<\/td>' +
+ '<td><div><\/div><\/td>' +
+ '<td>' +
+ '<button title="Cancel">' +
+ '<span>Cancel<\/span>' +
+ '<\/button><\/td><\/tr>');
+ },
+ buildDownloadRow: function (file) {
+ return $('<tr><td nowrap align="right" style="padding-top: 10px;"><b>Imagen:</b><\/td>' +
+ '<td>' + file.name + '</td>' +
+ '<\/tr></table>');
+ }
+ });
+ });
+</script>
 </body>
 
 </html>
