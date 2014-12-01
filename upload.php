@@ -1,6 +1,9 @@
 <?php
  //directorio de almacén de imágenes
- $uploaddir = 'img/';
+
+ 
+
+$uploaddir = 'img/';
 
  $tmp_name = $_FILES['file']['tmp_name'];
 
@@ -25,6 +28,10 @@
  } 
 
  move_uploaded_file($tmp_name,$uploadfile);
+ 
+ include 'funciones.php';
+$conexion = conectaBBDD();
+$consulta = $conexion->query("INSERT INTO `fotos`(`id`, `nombre`) VALUES ('7','$nombre_fichero_sin_espacios')");
 
  echo '{"name":"'.$uploadfile.'"}';                   
 ?>

@@ -245,75 +245,22 @@ echo '</script>';
     </div>
 
 <!--     Services 
-     The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ 
-    <section id="services" class="services bg-primary">
+     The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    <section id="services" class="services bg-primary hidden">
         <div class="container">
             <div class="row text-center">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <h2>Our Services</h2>
-                    <hr class="small">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-cloud fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-compass fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-flask fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-shield fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                     /.row (nested) 
-                </div>
-                 /.col-lg-10 
+                 <form id="file_upload" action="upload.php" method="POST" enctype="multipart/form-data">
+                <input class="btn btn-dark" type="file" name="file" multiple>
+                <button class="btn btn-dark">
+                    Upload</button>
+                    <div>
+                    
+                       </div>
+                                </form>
             </div>
-             /.row 
         </div>
-         /.container 
-    </section>-->
+ 
+    </section>
 
     <!-- Callout -->
 <!--    <aside  class="callout hidden">
@@ -354,14 +301,8 @@ echo '</script>';
                         <?php }?>
                     <!-- /.row (nested) -->
                     <a href="#" class="btn btn-dark">Mas Fotos</a>
-                    <form id="file_upload" action="upload.php" method="POST" enctype="multipart/form-data">
-                <input type="file" name="file" multiple>
-                <button class="btn btn-dark">
-                    Upload</button>
-                    <div>
-                    
-                        Subir imagen</div>
-                                </form>
+                    <a href="#services" class="btn btn-dark"onclick="sube()" >Subir imagen</a>
+                   
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
@@ -511,6 +452,10 @@ function comentar(){
                 $('#detalle').addClass('hidden');
                 $('#img').addClass('hidden');
             }
+            
+            function sube(){
+                $('#services').removeClass('hidden');
+    }
             
     </script>
 <script>
