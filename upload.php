@@ -1,6 +1,8 @@
 <?php
  //directorio de almacén de imágenes
 
+ $nomFoto = $_POST['nomfoto'];
+ $usuFoto = $_POST['usuFoto'];
  
 
 $uploaddir = 'img/';
@@ -31,7 +33,7 @@ $uploaddir = 'img/';
  
  include 'funciones.php';
 $conexion = conectaBBDD();
-$consulta = $conexion->query("INSERT INTO `fotos`(`id`, `nombre`) VALUES ('7','$nombre_fichero_sin_espacios')");
+$consulta = $conexion->query("INSERT INTO `fotosSubidas`(`nombre`,`ruta`,`usuario`) VALUES ('$nomFoto','$nombre_fichero_sin_espacios','$usuFoto')");
 
  echo '{"name":"'.$uploadfile.'"}';                   
 ?>

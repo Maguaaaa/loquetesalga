@@ -250,6 +250,10 @@ echo '</script>';
         <div class="container">
             <div class="row text-center">
                  <form id="file_upload" action="upload.php" method="POST" enctype="multipart/form-data">
+                     <input id = "usuario" type="text" value="" class="form-control " disabled name="usuFoto" placeholder="<?php if(isset($contrasena[1])){echo $contrasena[0];} ?>" />
+                     <br>
+                     <input id="nombreFoto" type="text" class="form-control" name="nomfoto" placeholder="nombre de la foto" />
+                     <br>
                 <input class="btn btn-dark" type="file" name="file" multiple>
                 <button class="btn btn-dark">
                     Upload</button>
@@ -281,7 +285,7 @@ echo '</script>';
                      <?php 
                      include 'funciones.php';
                         $conexion = conectaBBDD();
-                        $consulta = $conexion->query("select * from fotos");
+                        $consulta = $conexion->query("select * from fotosSubidas");
                         ?>
                         
                 
@@ -294,7 +298,7 @@ echo '</script>';
                             <div class="portfolio-item">
                                 
                                 <a href="#img">
-                                    <img class="img-portfolio img-responsive " onclick="cargafoto('<?php echo $fila['id']?>','<?php echo $fila['nombre']; ?>')" src="img/portfolio-<?php echo $fila['id']?>.jpg">
+                                    <img class="img-portfolio img-responsive " onclick="cargafoto('<?php echo $fila['id']?>','<?php echo $fila['nombre']; ?>')" src="img/<?php echo $fila['ruta']?>">
                                 </a>
                             </div>
                         </div>
