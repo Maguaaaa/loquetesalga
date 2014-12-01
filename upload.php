@@ -1,8 +1,15 @@
+<?php 
+session_start();
+if(isset($_SESSION['userName'])) {
+  echo "Your session is running " . $_SESSION['userName'];
+}
+?>
 <?php
  //directorio de almacén de imágenes
 
  $nomFoto = $_POST['nomfoto'];
- $usuFoto = $_POST['usuFoto'];
+ $usuFoto = $_SESSION['userName'];
+//$usuFoto = $_POST['usuFoto'];
  
 
 $uploaddir = 'img/';
@@ -35,6 +42,6 @@ $uploaddir = 'img/';
 $conexion = conectaBBDD();
 $consulta = $conexion->query("INSERT INTO `fotosSubidas`(`nombre`,`ruta`,`usuario`) VALUES ('$nomFoto','$nombre_fichero_sin_espacios','$usuFoto')");
 
- echo '{"name":"'.$uploadfile.'"}';                   
+ echo '{"name":"'.$uploadfile.'"}'; 
 ?>
 

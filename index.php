@@ -1,3 +1,9 @@
+<?php
+// pagina1.php
+
+session_start();
+$_SESSION['userName'] = 'Root';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,7 +81,7 @@ if( (isset($_POST['usuario'])) && ($_POST['usuario'] !== '') ){
         
         // si la palabra clave suministrada coincide con la que acabamos de recibir de vuelta para comprobar.
         if($pass === $contrasena[1]){
-  
+  $_SESSION['userName'] = $contrasena[0];
         // Ya que estamos, saludamos al usuario
      //   echo '<h2>Hola '.$contrasena[0].'</h2>';
 //        
