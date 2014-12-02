@@ -57,7 +57,7 @@ session_start();
  <?php
  //recoge el POST de index.php (el login)
  if( (isset($_SESSION['userName'])) && ($_SESSION['userName'] !== '') ){
-echo $_SESSION['userName'].' esta aqui ya';
+//echo $_SESSION['userName'].' esta aqui ya';
 ?>
 <script>
 $(document).ready(function(){
@@ -271,7 +271,7 @@ echo '</script>';
         <div class="container">
             <div class="row text-center">
                  <form id="file_upload" action="upload.php" method="POST" enctype="multipart/form-data">
-                     <input id = "usuario" type="text" value="" class="form-control " disabled name="usuFoto" placeholder="<?php if(isset($contrasena[1])){echo $contrasena[0];} ?>" />
+                     <input id = "usuario" type="text" value="" class="form-control " disabled name="usuFoto" placeholder="<?php if(isset($contrasena[1])){echo $_SESSION['userName'];} ?>" />
                      <br>
                      <input id="nombreFoto" type="text" class="form-control" name="nomfoto" placeholder="nombre de la foto" />
                      <br>
@@ -360,19 +360,19 @@ echo '</script>';
                     <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
                     <ul class="list-unstyled">
                         
-                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">name@example.com</a>
+                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:tfeneber@gmail.com">Support@loquetesalga.com</a>
                         </li>
                     </ul>
                     <br>
                     <ul class="list-inline">
                         <li>
-                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                            <a href="http://www.facebook.com"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                            <a href="http://www.twitter.com"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                            <a href="https://dribbble.com/"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
                         </li>
                     </ul>
                     <hr class="small">
