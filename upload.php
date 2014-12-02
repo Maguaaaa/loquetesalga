@@ -43,5 +43,7 @@ $conexion = conectaBBDD();
 $consulta = $conexion->query("INSERT INTO `fotosSubidas`(`nombre`,`ruta`,`usuario`) VALUES ('$nomFoto','$nombre_fichero_sin_espacios','$usuFoto')");
 
  echo '{"name":"'.$uploadfile.'"}'; 
+ echo 'La sesión ha sido cerrada. <br><br><a href="index.php">Vuelve a la pagina inicio</a>';
+ header( "refresh:2;url=index.php" );
 ?>
 

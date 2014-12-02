@@ -2,7 +2,6 @@
 // pagina1.php
 
 session_start();
-$_SESSION['userName'] = 'Root';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +56,23 @@ $_SESSION['userName'] = 'Root';
 <body>
  <?php
  //recoge el POST de index.php (el login)
- 
+ if( (isset($_SESSION['userName'])) && ($_SESSION['userName'] !== '') ){
+echo $_SESSION['userName'].' esta aqui ya';
+?>
+<script>
+$(document).ready(function(){
+$('#login_usuario').remove();
+$('#fotos').removeClass('hidden');
+$('#top').remove();
+$('#about').remove();//eliminamos la seccion del principio
+$('#barra').removeClass('hidden');
+});
+
+  
+
+ </script>
+ <?php
+ }  else {
 if( (isset($_POST['usuario'])) && ($_POST['usuario'] !== '') ){  
     //convierte a variables
            $usuario = $_POST['usuario'];
@@ -121,7 +136,7 @@ echo 'location.href = "index.php";';
 echo '</script>';      
     }
      }
-     
+     }
         ?>
 
     <!-- Navigation -->
@@ -130,10 +145,10 @@ echo '</script>';
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top"><?php if(isset($contrasena[1])){
-                    echo $contrasena[0];
+                <a href="#top"><?php if(isset($_SESSION['userName'])){
+                    echo $_SESSION['userName'];
                     echo '<li>
-                <a onclick="cierra()" href="index.php">Log Out</a><!--Log Out-->
+                <a onclick="cierra()" href="logout.php">Log Out</a><!--Log Out-->
                 
             </li>';
                 }else{echo 'Introduce tus datos';}?></a><!--Nombre usuario-->
