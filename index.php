@@ -298,7 +298,7 @@ echo '</script>';
                             <div class="portfolio-item">
                                 
                                 <a href="#img">
-                                    <img class="img-portfolio img-responsive " onclick="cargafoto('<?php echo $fila['id']?>','<?php echo $fila['nombre']; ?>')" src="img/<?php echo $fila['ruta']?>">
+                                    <img class="img-portfolio img-responsive " onclick="cargafoto('<?php echo $fila['nombre']?>','<?php echo $fila['usuario']; ?>','<?php echo $fila['ruta']?>')" src="img/<?php echo $fila['ruta']?>">
                                 </a>
                             </div>
                         </div>
@@ -387,11 +387,11 @@ echo '</script>';
         $("#sidebar-wrapper").toggleClass("active");
     });
 
-        function cargafoto(a,e){
+        function cargafoto(a,b,c){
             $("#img").removeClass("hidden");
             $("#detalle").removeClass("hidden");
-            $("#detalle").html('<div class="col-lg-6"><img class="img-portfolio img-thumbnail img-responsive"  src="img/portfolio-'+ a +'.jpg"></div>\n\
-        <div class="col-lg-4"><h2>'+ e +'</h2><h3>Usuario</h3></div><div class="col-lg-2"><h2 class="btn btn-dark" onclick="comentar()">Comentar</h2></div>');
+            $("#detalle").html('<div class="col-lg-6"><img class="img-portfolio img-thumbnail img-responsive"  src="img/'+ c +'"></div>\n\
+        <div class="col-lg-4"><h2>'+ a +'</h2><h3>'+ b +'</h3></div><div class="col-lg-2"><h2 class="btn btn-dark" onclick="comentar()">Comentar</h2></div>');
         }
 
     // Scrolls to the selected menu item on the page
