@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(isset($_SESSION['userName'])) {
-  echo "Your session is running " . $_SESSION['userName'];
+  //echo "Your session is running " . $_SESSION['userName'];
 }
 ?>
 <?php
@@ -84,10 +84,10 @@ $consulta = $conexion->query("INSERT INTO `fotosSubidas`(`nombre`,`ruta`,`usuari
 <body>
     <header id="top" class="header">
         <div id="cosa"class="text-vertical-center">
-            <h1><font color="white">Hasta luego !</font></h1>
+            <h1><font color="white">Imagen subida con exito</font></h1>
             <br>
             <br>
-            <h3><font color="white">Que tenga un buen día</font></h3>
+            <h3><font color="white">En unos segundos volvemos a su biblioteca</font></h3>
         </div>
     </header>
     

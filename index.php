@@ -145,14 +145,18 @@ echo '</script>';
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top"><?php if(isset($_SESSION['userName'])){
+                <a href="#login_usuario"><?php if(isset($_SESSION['userName'])){
                     echo $_SESSION['userName'];
                     echo '<li>
                 <a onclick="cierra()" href="logout.php">Log Out</a><!--Log Out-->
                 
             </li>';
-                }else{echo 'Introduce tus datos';}?></a><!--Nombre usuario-->
+                }else{echo 'Introduce tus datos';}
                 
+echo '<li><a class="page-scroll" href="#contenedor">Contact</a></li>';
+echo '<li><a href="index.php">Top</a></li>';
+                ?></a><!--Nombre usuario-->
+            
             </li>
 <!--            <li>
                 <a href="#top">Home</a>
@@ -236,7 +240,7 @@ echo '</script>';
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="index.php">
                     <i class="fa fa-photo"></i>  <span class="light">Lo Que</span> Te Salga
                 </a>
             </div>
@@ -255,7 +259,7 @@ echo '</script>';
                         <a class="page-scroll" href="#download">Download</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#contenedor">Contact</a>
                     </li>
                 </ul>
             </div>
