@@ -320,6 +320,7 @@ echo '<li><a href="index.php">Top</a></li>';
                     <div class="row">
                         <?php
                         while ($fila = $consulta->fetch_assoc()) {
+                            
                         ?>
                         <div class="col-md-6">
                             <legend><?php echo $fila['nombre'] ?></legend>
@@ -404,6 +405,9 @@ echo '<li><a href="index.php">Top</a></li>';
     <!-- Custom Theme JavaScript -->
     <script>
     // Closes the sidebar menu
+    
+    var nombreFoto ="";
+    
     $("#menu-close").click(function(e) {
         e.preventDefault();
         $("#sidebar-wrapper").toggleClass("active");
@@ -416,10 +420,13 @@ echo '<li><a href="index.php">Top</a></li>';
     });
 
         function cargafoto(a,b,c){
+            nombreFoto = "" + c;
+            
             $("#img").removeClass("hidden");
             $("#detalle").removeClass("hidden");
             $("#detalle").html('<div class="col-lg-6"><img class="img-portfolio img-thumbnail img-responsive"  src="img/'+ c +'"></div>\n\
-        <div class="col-lg-4"><h2>'+ a +'</h2><h3>'+ b +'</h3></div><div class="col-lg-2"><h2 class="btn btn-dark" onclick="comentar()">Comentar</h2></div>');
+        <div class="col-lg-4"><h2>'+ a +'</h2><h3>'+ b +'</h3>\n\
+</div><div class="col-lg-2"><h2 class="btn btn-dark" onclick="comentar()">Comentar</h2></div>');
         }
 
     // Scrolls to the selected menu item on the page
@@ -467,14 +474,22 @@ echo '<li><a href="index.php">Top</a></li>';
         }); 
  }
  
-function comentar(){
-        $("#detalle").html('<div class="col-lg-4"></div><div class="col-lg-4"> <legend>Usuario</legend> <input id = "usuario" type="text" class="form-control " disabled name="usuario" placeholder="<?php if(isset($contrasena[1])){echo $contrasena[0];} ?>" /><br><legend>Comentario</legend><textarea class="form-control" rows="3"></textarea><h2 class="btn btn-dark" onclick="enviaComent()">Enviar</h2></div><div class="col-lg-1"><a href="#portfolio"><h2 class="btn btn-xs btn-danger " onclick="cierraComent()">Cerrar</h2></a>');
+function comentar(c){
+        $("#detalle").html('<div class="col-lg-4"></div><div class="col-lg-4"> <legend>Usuario</legend> <input id = "usuario" type="text" class="form-control " disabled name="usuario" placeholder="<?php if(isset($_SESSION['userName'])){echo $_SESSION['userName'];} ?>" /><br><legend>Comentario</legend><textarea id="coment" class="form-control" rows="3"></textarea><h2 class="btn btn-dark" onclick="enviaComent()">Enviar</h2></div><div class="col-lg-1"><a href="#portfolio"><h2 class="btn btn-xs btn-danger " onclick="cierraComent()">Cerrar</h2></a>');
     }
     
-    function enviaComent(){
-        //FUNCION PARA QUE SE ENVIE EL COMENTARIO A LA BASE DE DATOS
-    }
-    
+     function enviaComent() {
+                                
+                               // var _usuario =<?php if(isset($_SESSION['userName'])){echo $_SESSION['userName'];} ?>;
+                                
+                               var _comentario = $('#coment').val();
+                                $('body').load("comentarioBueno.php", {
+                                    foto:nombreFoto,
+                                    usuario: " <?php if(isset($_SESSION['userName'])){echo $_SESSION['userName'];} ?>",
+                                    comentario: _comentario
+
+                                });
+                           }
             
             function cierra(){//El log Out
                 session_destroy();
