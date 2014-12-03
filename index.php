@@ -275,7 +275,7 @@ echo '<li><a href="index.php">Top</a></li>';
         <div class="container">
             <div class="row text-center">
                  <form id="file_upload" action="upload.php" method="POST" enctype="multipart/form-data">
-                     <input id = "usuario" type="text" value="" class="form-control " disabled name="usuFoto" placeholder="<?php if(isset($contrasena[1])){echo $_SESSION['userName'];} ?>" />
+                     <input id = "usuario" type="text" value="" class="form-control " disabled name="usuFoto" placeholder="<?php if(isset($_SESSION['userName'])){echo $_SESSION['userName'];} ?>" />
                      <br>
                      <input id="nombreFoto" type="text" class="form-control" name="nomfoto" placeholder="nombre de la foto" />
                      <br>
@@ -310,7 +310,10 @@ echo '<li><a href="index.php">Top</a></li>';
                      <?php 
                      include 'funciones.php';
                         $conexion = conectaBBDD();
-                        $consulta = $conexion->query("select * from fotosSubidas");
+                       // $consulta = $conexion->query("select * from fotosSubidas where usuario = '$contrasena[0]'");
+                        $userName = $_SESSION['userName'];
+                        $consulta = $conexion->query("select * from fotosSubidas where usuario = '$userName'");
+                        
                         ?>
                         
                 
