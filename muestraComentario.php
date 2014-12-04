@@ -9,7 +9,7 @@ $nombreFoto = $_POST['fotografia'];
                      include 'funciones.php';
                         $conexion = conectaBBDD();
                        // $consulta = $conexion->query("select * from fotosSubidas where usuario = '$contrasena[0]'");
-                         $userName = $_SESSION['userName'];
+                         //$userName = $_SESSION['userName'];
                         $consulta = $conexion->query("select * from comentarios  where foto='$nombreFoto'");
                         //where usuario='$userName
                         ?>
