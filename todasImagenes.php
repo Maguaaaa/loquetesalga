@@ -8,7 +8,7 @@
                      <?php 
                      include 'funciones.php';
                         $conexion = conectaBBDD();
-                        $consulta = $conexion->query("select * from fotosSubidas ORDER BY rand() LIMIT 4");
+                        $consulta = $conexion->query("select * from fotosSubidas ORDER BY rand() LIMIT 8");
                         ?>
                         
                 
@@ -16,12 +16,12 @@
                         <?php
                         while ($fila = $consulta->fetch_assoc()) {
                         ?>
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <legend><?php echo $fila['nombre'] ?></legend>
                             <div class="portfolio-item">
                                 
                                 <a href="#img">
-                                    <img class="img-portfolio img-responsive " onclick="cargafoto('<?php echo $fila['nombre']?>','<?php echo $fila['usuario']; ?>','<?php echo $fila['ruta']?>')" src="img/<?php echo $fila['ruta']?>">
+                                    <img height="150" width="150" class="img-portfolio img-responsive " onclick="cargafoto('<?php echo $fila['nombre']?>','<?php echo $fila['usuario']; ?>','<?php echo $fila['ruta']?>')" src="img/<?php echo $fila['ruta']?>">
                                 </a>
                             </div>
                         </div>
