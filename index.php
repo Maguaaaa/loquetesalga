@@ -428,7 +428,7 @@ echo '<li><a href="index.php">Top</a></li>';
             $("#img").removeClass("hidden");
             $("#detalle").removeClass("hidden");
             $("#detalle").html('<div class="col-lg-6"><img class="img-portfolio img-thumbnail img-responsive"  src="img/'+ c +'"></div>\n\
-        <div class="col-lg-4"><h2>'+ a +'</h2><h3>'+ b +'</h3>\n\
+        <div class="col-lg-4"><h2>'+ a +'</h2><h3>'+ b +'</h3><legend>Comentarios</legend>\n\
 <div id="test">test</div></div><div class="col-lg-2"><h2 class="btn btn-dark" onclick="comentar()">Comentar</h2></div>');
         $('#test').load('muestraComentario.php',{
                     fotografia : c

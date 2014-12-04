@@ -3,7 +3,7 @@ session_start();
 //include 'funciones.php';
 //$conexion = conectaBBDD();
 $nombreFoto = $_POST['fotografia'];
-echo $nombreFoto;
+//echo $nombreFoto;
 ?>
 <?php 
                      include 'funciones.php';
@@ -16,18 +16,22 @@ echo $nombreFoto;
                         
                 
                     <div class="row">
-                        <table>
-                            <tr>'
+                        <table  class='table table-hover'>
+                            <font color='red'>
+                            
+                            
                         <?php
                         while ($fila = $consulta->fetch_assoc()) {
                             
                         ?>
-                       
-                                <td><?php echo $fila['usuario'] ?></td>
-                                <td><?php echo $fila['comentario'] ?></td>
-                           
-                        </div>
+                            <tr>
+                            <td><font color="black"><?php echo $fila['usuario'] ?></font><font color="black"></td>
+                                
+                                <td><font color="black"><?php echo $fila['comentario'] ?><font color="black"></td>
+                                
+                            </tr>
                         <?php }?>
+                                </table>
 <!--<div id="muestra">
     <h2>Funciona</h2>
 </div>-->
