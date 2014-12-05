@@ -49,7 +49,7 @@ $consulta = $conexion->query("INSERT INTO `comentarios`(`foto`,`usuario`,`coment
         <div id="cosa"class="text-vertical-center">
             <h1><font color="white"><?php if($consulta){
     
-    echo '<h3>Well Done</h3>';
+    echo '<h3>Operacion realizada con exito</h3>';
     
 }else{
     echo '<h3>No se a podido completar</h3>';

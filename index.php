@@ -255,12 +255,12 @@ echo '<li><a href="index.php">Top</a></li>';
                     <li class="hidden active">
                         <a href="#page-top"></a>
                     </li>
-                    <li>
+<!--                    <li>
                         <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#download">Download</a>
-                    </li>
+                    </li>-->
                     <li>
                         <a class="page-scroll" href="#contenedor">Contact</a>
                     </li>
@@ -336,9 +336,10 @@ echo '<li><a href="index.php">Top</a></li>';
                         </div>
                         <?php }?>
                     <!-- /.row (nested) -->
-                    <a href="#" class="btn btn-dark">Mas Fotos</a>
+                    <a href="#loMio" class="btn btn-dark" onclick="muestraLoMio()">Mis Fotos</a>
                     <a href="#services" class="btn btn-dark"onclick="sube()" >Subir imagen</a>
                    
+                    
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
@@ -360,7 +361,7 @@ echo '<li><a href="index.php">Top</a></li>';
     <hr>
     <div id="fotosPublic"></div>
 
-
+<div id="loMio"></div>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -408,7 +409,12 @@ echo '<li><a href="index.php">Top</a></li>';
     <!-- Custom Theme JavaScript -->
     <script>
     // Closes the sidebar menu
-    
+    $(document).ready(function(){
+                
+                    $('#fotosPublic').load("todasImagenes.php");
+                    $('#loMio').load("misFotos.php");
+                
+            });
     var nombreFoto ="";
     
     $("#menu-close").click(function(e) {
@@ -455,6 +461,7 @@ echo '<li><a href="index.php">Top</a></li>';
     function registro(){
         $("#img").removeClass("hidden");
         $("#detalle").removeClass("hidden");
+        $('#fotosPublic').remove();
       $("#detalle").html('<div class="col-lg-2"></div><div class="col-lg-8"><legend>Registrate</legend><form class="registerForm" method="post">\n\
        <div class="form-group"><label>Nombre</label><div class="input-prepend"><span class="add-on">\n\
        </span><input id="nombre" placeholder="Nombre" type="text" class="form-control input-xlarge" name="nombre" />\n\
@@ -506,6 +513,10 @@ function comentar(c){
                 $('#img').addClass('hidden');
             }
             
+            function muestraLoMio(){
+                $('#miFotos').removeClass('hidden');
+                $('#portfolio').addClass('hidden');
+    }
             function sube(){
                 $('#services').removeClass('hidden');
     }
@@ -514,12 +525,7 @@ function comentar(c){
 <script>
 
 
-$(document).ready(function(){
-                
-                    $('#fotosPublic').load("todasImagenes.php");
-                    
-                
-            });
+
             
  $(function () {
  $('#file_upload').fileUploadUI({
